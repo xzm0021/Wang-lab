@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+## author: Y.H. ZHOU
 ##usage perl thisscript.pl datapath
 
 $f = $ARGV[0]; #get the file name
