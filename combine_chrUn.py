@@ -42,7 +42,7 @@ def findfile(start, name,filenames):
                 full_path = os.path.join(relpath, file)
                 filenames.append(os.path.normpath(os.path.abspath(full_path)))
 
-dp="chrUn_part"
+dp="unknown"
 filenames=[]
 findfile(dp,"chrUn",filenames)
 
@@ -66,7 +66,8 @@ for file in filenames:
         combined_chrUn.append([line_others+"N"*1000])
         print(ID," success!")
 
-print(combined_chrUn[-1][0][:-1000])
+##rm last N tail
+del(ID_and_length[-1])
 combined_chrUn_last=combined_chrUn[-1][0][:-1000]
 del(combined_chrUn[-1])
 combined_chrUn.append([combined_chrUn_last])
