@@ -19,9 +19,16 @@ output agp file.
 =================================== example =================================== 
 agp file:
     
-chrUn	1	2660953	1	W	chrUn_JH373233	1	2660953	+
-chrUn	2660954	2661953	2	N	fragment	1	1000	+
-chrUn	2661954	4543626	3	W	chrUn_JH373234	1	1881673	+
+chrUn	1	291010	1	W	chrUn_NW_019645229v1	1	291010	+
+chrUn	291011	292010	2	N	fragment	1	1000	+
+chrUn	292011	296614	3	W	chrUn_NW_019642425v1	1	4604	+
+
+but we need to use excel to mannually link ensemble ID to the output agp file,
+the final version looks:
+    
+chrUn	1	291010	1	W	chrUn_NW_019645229v1	PJAA01004061.1	1	291010	+
+chrUn	291011	292010	2	N	fragment	fragment	1	1000	+
+chrUn	292011	296614	3	W	chrUn_NW_019642425v1	PJAA01000297.1	1	4604	+
 
 =================================== warning ===================================
 this script is to use in linux, for windows, you may need to modify the way to 
@@ -91,7 +98,7 @@ for ial in ID_and_length:
     end=end+ial[1] #end=end+length
     index=index+1
     index2=["N","W"][index%2] ##even odd
-    ID=ial[0]
+    ID=ial[0].strip(">")
     unit_end=ial[1]
 
     agp_line=[head,start,end,index,index2,ID,unit_start,unit_end,index3]
