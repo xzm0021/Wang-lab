@@ -42,7 +42,7 @@ import time
 
 output_agp='equCab3_chrUn.agp'
 output_fq='equCab3_chrUn.fa'
-fq_width=60 #every 60 nts one line
+fq_width=50 #every 60 nts one line
 
 ##get each insterested file and their absolut datapath
 def findfile(start, name,filenames):
@@ -146,8 +146,8 @@ with open(output_fq,'w') as f:
         for line in chrUn_wrap_without_tail:
             f.write(line)
             f.write('\n')
-        f.write(chrUn_wrap_tail)
-        f.write('\n')
+    f.write(chrUn_wrap_tail)
+    f.write('\n')
         
 #remove last /n of output
 #using wheel from stackoverflow
