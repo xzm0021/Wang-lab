@@ -15,7 +15,11 @@ output agp file.
 =================================== output ====================================
 
 ================================= parameters ==================================
-
+output_agp='chrY.agp'
+output_fq='chrY_new.fa'
+fq_width=50 #every 60 nts one line
+dp="combine_chrY"
+head="chrY"
 =================================== example =================================== 
 agp file:
     
@@ -40,8 +44,8 @@ import pandas as pd
 import textwrap #for wrap text
 import time
 
-output_agp='equCab3_chrUn.agp'
-output_fq='equCab3_chrUn.fa'
+output_agp='chrY.agp'
+output_fq='chrY_new.fa'
 fq_width=50 #every 60 nts one line
 
 ##get each insterested file and their absolut datapath
@@ -52,9 +56,9 @@ def findfile(start, name,filenames):
                 full_path = os.path.join(relpath, file)
                 filenames.append(os.path.normpath(os.path.abspath(full_path)))
 
-dp="ucsc_unknown"
+dp="combine_chrY"
 filenames=[]
-findfile(dp,"chrUn",filenames)
+findfile(dp,"chrY",filenames)
 
 #count time
 time_start=time.time()
@@ -87,7 +91,7 @@ combined_chrUn.append(combined_chrUn_last)
 
 
 ##format agp file
-head="chrUn"
+head="chrY"
 start=1
 end=0
 index=0
